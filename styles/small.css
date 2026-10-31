@@ -1,0 +1,355 @@
+
+:root {
+    --primary: #183153;
+    --primary-dark: #10233d;
+    --secondary: #dce8f5;
+    --accent: #f2c14e;
+    --background: #f4f6f9;
+    --surface: #ffffff;
+    --text: #202a35;
+    --muted: #526170;
+    --completed: #e1f2e7;
+    --completed-border: #27643b;
+    --pending: #ffffff;
+    --pending-border: #8794a3;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+/* Cabeçalho */
+
+header {
+    background-color: var(--primary);
+    color: white;
+}
+
+.header-container {
+    width: min(100% - 2rem, 1100px);
+    margin: 0 auto;
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    min-width: 0;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.logo span {
+    overflow-wrap: anywhere;
+}
+
+/* Botão do menu */
+
+.menu-button {
+    border: 2px solid white;
+    border-radius: 6px;
+    background: transparent;
+    color: white;
+    padding: 0.35rem 0.7rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Navegação */
+
+.navigation {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.navigation.open {
+    display: flex;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    background-color: var(--primary-dark);
+}
+
+.navigation a[aria-current="page"] {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+}
+
+/* Conteúdo principal */
+
+.container {
+    width: min(100% - 2rem, 1100px);
+    margin: 2rem auto;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    margin-bottom: 1.25rem;
+}
+
+h2 {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.85rem 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+/* Cartões */
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid #d5dce5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgb(16 35 61 / 8%);
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.card-content p + p {
+    margin-top: 1rem;
+}
+
+/* Foto */
+
+.photo-content {
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: min(100%, 260px);
+    min-height: 230px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    background: var(--secondary);
+    border: 3px solid var(--primary);
+    border-radius: 6px;
+    color: var(--primary);
+}
+
+.photo-placeholder span {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.photo-note {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* Certificado e filtros */
+
+.certificate {
+    min-width: 0;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.25rem 1rem 0.5rem;
+}
+
+.filter {
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    background-color: white;
+    color: var(--primary);
+    padding: 0.6rem 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.filter:hover,
+.filter:focus-visible {
+    background-color: var(--secondary);
+}
+
+.filter.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.credit-summary {
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 0.75rem 1rem;
+}
+
+/* Lista de cursos */
+
+.course-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem 1rem;
+}
+
+.course {
+    border: 2px solid var(--pending-border);
+    border-radius: 6px;
+    background-color: var(--pending);
+    padding: 1rem;
+    text-align: center;
+}
+
+.course.completed {
+    background-color: var(--completed);
+    border-color: var(--completed-border);
+}
+
+.course h3 {
+    font-size: 1.05rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.35rem;
+}
+
+.course p {
+    font-size: 0.9rem;
+}
+
+.course-status {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.completed .course-status {
+    background-color: var(--completed-border);
+    color: white;
+}
+
+.pending .course-status {
+    background-color: #e5e9ee;
+    color: #263442;
+}
+
+/* Legenda */
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem 1.25rem;
+    font-size: 0.85rem;
+}
+
+.legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.legend-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #526170;
+    border-radius: 3px;
+}
+
+.completed-legend {
+    background-color: var(--completed);
+    border-color: var(--completed-border);
+}
+
+.pending-legend {
+    background-color: white;
+    border-color: var(--pending-border);
+}
+
+/* Rodapé */
+
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    padding: 0.25rem;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    color: var(--accent);
+}
+
+footer p {
+    overflow-wrap: anywhere;
+}
+
+.modified {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+.profile-photo {
+    display: block;
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px auto;
+    border: 3px solid #183153;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

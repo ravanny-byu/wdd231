@@ -1,31 +1,185 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Página inicial do curso WDD 231 de Ravanny Galvão Navarro.">
     <meta name="author" content="Ravanny da Silva Trajano Galvão Navarro">
-    <meta name="description" content="Meu projeto da disciplina WDD231">
+    <meta name="theme-color" content="#183153">
 
-    <title>WDD231 - Meu Projeto</title>
+    <title>WDD 231 | Página Inicial do Curso</title>
 
-    <link rel="stylesheet" href="estilos/normalize.css">
-    <link rel="stylesheet" href="estilos/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
-<body>
 
+<body>
     <header>
-        <h1>WDD 231: Desenvolvimento Frontend para Web I</h1>
+        <div class="header-container">
+
+            <a class="logo" href="index.html" aria-label="Página inicial">
+                <img src="images/transferir.svg" alt="Logotipo do curso">
+                <span>Ravanny Galvão Navarro</span>
+            </a>
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                type="button"
+                aria-label="Abrir menu de navegação"
+                aria-expanded="false"
+                aria-controls="navigation">
+                ☰
+            </button>
+
+            <nav id="navigation" class="navigation" aria-label="Navegação principal">
+                <a href="index.html" aria-current="page">Início</a>
+                <a href="chamber/index.html">Câmara</a>
+                <a href="project/index.html">Projeto Final</a>
+            </nav>
+
+        </div>
     </header>
 
-    <main>
-        <h2>Bem-vindo ao meu projeto!</h2>
-        <p>Este é meu site desenvolvido durante a disciplina WDD231.</p>
+    <main class="container">
+
+        <h1>Página Inicial</h1>
+
+        <div class="main-grid">
+
+            <section class="card about">
+                <h2>Sobre Mim</h2>
+
+                <div class="card-content">
+                    <p>
+                        Olá! Meu nome é Ravanny. Sou estudante de Desenvolvimento
+                        Web Frontend na BYU-Pathway Worldwide.
+                    </p>
+
+                    <p>
+                        Gosto de aprender novas tecnologias e desenvolver
+                        habilidades em programação e criação de sites.
+                    </p>
+
+                    <p>
+                        Esta página apresenta um pouco sobre mim e os cursos
+                        que fazem parte do Certificado de Programação Web
+                        e de Computadores.
+                    </p>
+                </div>
+            </section>
+
+            <section class="card photo">
+                <h2>Minha Foto</h2>
+
+                <div class="photo-content">
+                    <div class="photo-placeholder" role="img" aria-label="Espaço reservado para a foto do estudante">
+                        <img
+    src="images/minha-foto.jpg"
+    alt="Foto de Ravanny"
+    class="profile-photo"
+>
+                    </div>
+
+                    <p class="photo-note">
+                        Adicione sua foto neste espaço.
+                    </p>
+                </div>
+            </section>
+
+            <section class="card certificate">
+                <h2>Certificado de Programação Web e de Computadores</h2>
+
+                <div class="filters" aria-label="Filtros de cursos">
+
+                    <button
+                        class="filter active"
+                        type="button"
+                        data-filter="ALL"
+                        aria-pressed="true">
+                        Todos os Cursos
+                    </button>
+
+                    <button
+                        class="filter"
+                        type="button"
+                        data-filter="WDD"
+                        aria-pressed="false">
+                        Cursos WDD
+                    </button>
+
+                    <button
+                        class="filter"
+                        type="button"
+                        data-filter="CSE"
+                        aria-pressed="false">
+                        Cursos CSE
+                    </button>
+
+                </div>
+
+                <p id="creditSummary" class="credit-summary" aria-live="polite">
+                    Créditos: 0
+                </p>
+
+                <div id="courseList" class="course-list" aria-live="polite">
+                    <!-- Os cursos serão exibidos dinamicamente pelo JavaScript. -->
+                </div>
+
+                <div class="legend">
+                    <span>
+                        <span class="legend-box completed-legend"></span>
+                        Curso concluído
+                    </span>
+
+                    <span>
+                        <span class="legend-box pending-legend"></span>
+                        Curso não concluído
+                    </span>
+                </div>
+
+            </section>
+
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Ravanny da Silva Trajano Galvão Navarro</p>
-    </footer>
 
+        <div class="social-links">
+            <a href="https://github.com/ravanny-byu/wdd231"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn
+            </a>
+        </div>
+
+        <p>
+            &copy; <span id="currentyear"></span>
+            Ravanny da Silva Trajano Galvão Navarro
+            | Rio das Ostras, RJ, Brasil
+        </p>
+
+        <p class="modified">
+            Última modificação:
+            <span id="lastModified"></span>
+        </p>
+
+    </footer>
 </body>
 </html>
