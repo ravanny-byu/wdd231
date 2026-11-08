@@ -1,0 +1,53 @@
+
+/* Layout para tablets e computadores */
+
+@media screen and (min-width: 700px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+    }
+
+    #menuButton {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    nav a {
+        padding: 0.7rem 1rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    .grade-empresas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lista-empresas {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lista-empresas .cartao-empresa {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-around;
+        text-align: left;
+        gap: 2rem;
+    }
+}

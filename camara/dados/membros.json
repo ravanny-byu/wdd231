@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Churrasco e Cia",
+    "address": "Rua Maria Bela dos Santos, Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2760-7132",
+    "website": "",
+    "image": "churrasco-e-cia.png",
+    "membershipLevel": 3,
+    "category": "Restaurante"
+  },
+  {
+    "name": "Desejos de Chocolate",
+    "address": "Rua Hernani Coutinho da Costa, 22 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2771-4999",
+    "website": "",
+    "image": "desejos-de-chocolate.png",
+    "membershipLevel": 2,
+    "category": "Doceria"
+  },
+  {
+    "name": "Empório Creperia",
+    "address": "Avenida Costazul, 220 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 99958-6775",
+    "website": "",
+    "image": "emporio-creperia.png",
+    "membershipLevel": 1,
+    "category": "Alimentação"
+  },
+  {
+    "name": "Feijão e Cia",
+    "address": "Rua Maria Bela dos Santos, 310 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2760-7132",
+    "website": "",
+    "image": "feijao-e-cia.png",
+    "membershipLevel": 2,
+    "category": "Restaurante"
+  },
+  {
+    "name": "Galeto",
+    "address": "Avenida Governador Roberto Silveira, 757 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2771-4949",
+    "website": "",
+    "image": "galeto.png",
+    "membershipLevel": 1,
+    "category": "Restaurante"
+  },
+  {
+    "name": "Hanatake",
+    "address": "Avenida Costazul, 980 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2760-5426",
+    "website": "",
+    "image": "hanatake.png",
+    "membershipLevel": 3,
+    "category": "Restaurante"
+  },
+  {
+    "name": "Mario Gourmet",
+    "address": "Avenida Costazul, 712 - Costazul, Rio das Ostras - RJ",
+    "phone": "(22) 2760-0268",
+    "website": "",
+    "image": "mario-gourmet.png ",
+    "membershipLevel": 1,
+    "category": "Restaurante"
+  }
+]

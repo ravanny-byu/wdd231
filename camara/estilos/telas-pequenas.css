@@ -1,0 +1,171 @@
+
+/* Identidade visual da Câmara de Comércio */
+
+:root {
+    --azul-principal: #183153;
+    --dourado: #D6A84B;
+    --fundo: #F4F6F8;
+    --texto: #202833;
+    --branco: #FFFFFF;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 1rem;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.cabecalho img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    object-position: left center;
+    flex-shrink: 0;
+}
+
+
+
+.cabecalho h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.cabecalho p {
+    margin: 0;
+}
+
+#menuButton {
+    background: none;
+    border: 1px solid var(--dourado);
+    color: var(--branco);
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+nav.aberto {
+    display: flex;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    padding: 0.7rem;
+}
+
+nav a:hover,
+nav a.ativo {
+    background-color: var(--dourado);
+    color: var(--azul-principal);
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+main h2 {
+    color: var(--azul-principal);
+}
+
+.botoes-visualizacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1.5rem 0;
+}
+
+.botoes-visualizacao button {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+}
+
+.botoes-visualizacao button:hover {
+    background-color: var(--dourado);
+    color: var(--azul-principal);
+}
+
+.grade-empresas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.cartao-empresa {
+    background-color: var(--branco);
+    border: 1px solid #DDE2E8;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.cartao-empresa img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cartao-empresa h3 {
+    color: var(--azul-principal);
+}
+
+.cartao-empresa a {
+    color: var(--azul-principal);
+    font-weight: bold;
+}
+
+.lista-empresas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lista-empresas .cartao-empresa {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+}
+
+.lista-empresas .cartao-empresa img {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer h2 {
+    color: var(--dourado);
+    font-size: 1.2rem;
+}
