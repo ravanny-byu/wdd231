@@ -271,10 +271,11 @@ footer h2 {
 }
 
 .cartao-destaque img {
-    width: 110px;
-    height: 90px;
+    display: block;
+    width: 100%;
+    height: 180px;
     object-fit: contain;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .cartao-destaque h3 {
