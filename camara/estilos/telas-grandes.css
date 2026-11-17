@@ -51,3 +51,155 @@
         gap: 2rem;
     }
 }
+/* Banner principal sofisticado */
+.hero {
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 25px;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    border: 1px solid #e1e5eb;
+}
+
+/* =====================================
+   PÁGINA INICIAL - COMPUTADORES
+===================================== */
+
+/* Conteúdo principal */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+/* Títulos das seções */
+main section > h2 {
+    color: #183153;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* EVENTOS */
+.eventos-home {
+    margin: 3rem 0;
+}
+
+.eventos-home article {
+    display: inline-block;
+    vertical-align: top;
+    width: 46%;
+    margin: 1%;
+    padding: 1.5rem;
+    background-color: #f5f7fa;
+    border-left: 5px solid #c49a35;
+    border-radius: 8px;
+}
+
+.eventos-home article h3 {
+    color: #183153;
+}
+
+/* CLIMA */
+.secao-tempo {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f1f5f9;
+    border-radius: 12px;
+}
+
+.tempo-atual {
+    padding: 1.5rem;
+    background-color: #183153;
+    color: white;
+    border-radius: 10px;
+}
+
+.tempo-atual h3 {
+    color: #ffffff;
+}
+
+.previsao-tempo {
+    margin-top: 2rem;
+}
+
+#previsaoDias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.cartao-previsao {
+    padding: 1.2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom: 4px solid #c49a35;
+}
+
+/* EMPRESAS EM DESTAQUE */
+.destaques {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.grade-destaques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cartao-destaque {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #e1e5eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.cartao-destaque:hover {
+    transform: translateY(-5px);
+}
+
+.cartao-destaque img {
+    width: 110px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.cartao-destaque h3 {
+    color: #183153;
+}
+
+.cartao-destaque a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #183153;
+    font-weight: 700;
+}
+
+/* BOTÕES */
+.botao-cta {
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+    margin-top: 1rem;
+    background-color: #183153;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-cta:hover {
+    background-color: #c49a35;
+    color: #183153;
+}
