@@ -320,6 +320,7 @@ a:focus-visible {
 
 /* ===== PÁGINA DE ASSOCIAÇÃO ===== */
 
+
 .secao-associacao {
     display: grid;
     grid-template-columns: 1fr;
@@ -337,19 +338,22 @@ a:focus-visible {
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
 }
 
-.formulario-associacao h3,
-.cartoes-associacao h3 {
-    color: #183153;
-    margin-top: 0;
-}
-
-.formulario-associacao form {
+.formulario-associacao {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
+.formulario-associacao h2,
+.cartoes-associacao h2 {
+    color: #183153;
+    margin-top: 0;
+}
+
 .formulario-associacao label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
     font-weight: 600;
     margin-top: 0.7rem;
 }
@@ -372,7 +376,7 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-.formulario-associacao form button,
+.formulario-associacao button,
 .cartao-membro button {
     background-color: #183153;
     color: #ffffff;
@@ -384,11 +388,11 @@ a:focus-visible {
     cursor: pointer;
 }
 
-.formulario-associacao form button {
+.formulario-associacao button {
     margin-top: 1rem;
 }
 
-.formulario-associacao form button:hover,
+.formulario-associacao button:hover,
 .cartao-membro button:hover {
     background-color: #28517f;
 }
@@ -420,7 +424,7 @@ a:focus-visible {
     animation-delay: 0.45s;
 }
 
-.cartao-membro h4 {
+.cartao-membro h3 {
     color: #183153;
     margin-top: 0;
     font-size: 1.2rem;
@@ -441,6 +445,7 @@ a:focus-visible {
         transform: translateY(0);
     }
 }
+
 
 /* ===== JANELAS DE BENEFÍCIOS ===== */
 
