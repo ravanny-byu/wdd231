@@ -317,3 +317,220 @@ a:focus-visible {
     outline: 3px solid var(--dourado);
     outline-offset: 3px;
 }
+
+/* ===== PÁGINA DE ASSOCIAÇÃO ===== */
+
+.secao-associacao {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.formulario-associacao,
+.cartoes-associacao {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+.formulario-associacao h3,
+.cartoes-associacao h3 {
+    color: #183153;
+    margin-top: 0;
+}
+
+.formulario-associacao form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formulario-associacao label {
+    font-weight: 600;
+    margin-top: 0.7rem;
+}
+
+.formulario-associacao input,
+.formulario-associacao select,
+.formulario-associacao textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.formulario-associacao input:focus,
+.formulario-associacao select:focus,
+.formulario-associacao textarea:focus {
+    outline: 3px solid #d69e36;
+    outline-offset: 2px;
+}
+
+.formulario-associacao form button,
+.cartao-membro button {
+    background-color: #183153;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario-associacao form button {
+    margin-top: 1rem;
+}
+
+.formulario-associacao form button:hover,
+.cartao-membro button:hover {
+    background-color: #28517f;
+}
+
+.cartoes-associacao {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cartao-membro {
+    background-color: #f1f4f8;
+    border-left: 5px solid #d69e36;
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+    animation: entradaCartao 0.8s ease both;
+}
+
+.cartao-membro:nth-of-type(2) {
+    animation-delay: 0.15s;
+}
+
+.cartao-membro:nth-of-type(3) {
+    animation-delay: 0.30s;
+}
+
+.cartao-membro:nth-of-type(4) {
+    animation-delay: 0.45s;
+}
+
+.cartao-membro h4 {
+    color: #183153;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.cartao-membro p {
+    line-height: 1.5;
+}
+
+@keyframes entradaCartao {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== JANELAS DE BENEFÍCIOS ===== */
+
+dialog {
+    width: min(90%, 450px);
+    border: none;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+dialog h3 {
+    color: #183153;
+}
+
+dialog p {
+    line-height: 1.6;
+}
+
+dialog button {
+    background-color: #183153;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+dialog button:hover {
+    background-color: #28517f;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #d69e36;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cartao-membro {
+        animation: none;
+    }
+}
+
+/* ===== PÁGINA DE AGRADECIMENTO ===== */
+
+.pagina-agradecimento {
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+}
+
+.pagina-agradecimento h2 {
+    color: #183153;
+}
+
+.resumo-associacao {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+.resumo-associacao h3 {
+    color: #183153;
+    border-bottom: 2px solid #d69e36;
+    padding-bottom: 0.8rem;
+}
+
+.resumo-associacao p {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.botao-voltar {
+    display: inline-block;
+    background-color: #183153;
+    color: #ffffff;
+    padding: 0.9rem 1.3rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.botao-voltar:hover {
+    background-color: #28517f;
+}

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Associe-se à Câmara de Comércio de Rio das Ostras e conheça os benefícios de cada nível de associação.">
+    <meta name="author" content="Ravanny da Silva Trajano Galvão Navarro">
+
+    <title>Associe-se | Câmara de Comércio de Rio das Ostras</title>
+
+    <link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="estilos/normalize.css">
+    <link rel="stylesheet" href="estilos/telas-pequenas.css">
+    <link rel="stylesheet" href="estilos/telas-grandes.css">
+
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/associacao.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="cabecalho">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo da Câmara de Comércio de Rio das Ostras">
+            </a>
+
+            <div>
+                <h1>Câmara de Comércio</h1>
+                <p>Rio das Ostras - RJ</p>
+            </div>
+        </div>
+
+        <button id="menuButton" type="button"
+            aria-label="Abrir menu de navegação"
+            aria-controls="menu"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <nav id="menu" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="diretorio.html">Diretório</a>
+            <a href="associacao.html" aria-current="page">Associe-se</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="podcast.html">Podcast</a>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal">
+
+        <h2>Associe-se à Câmara</h2>
+
+        <p>
+            Faça parte da nossa comunidade empresarial.
+            Escolha seu nível de associação e aproveite os benefícios
+            oferecidos pela Câmara de Comércio de Rio das Ostras.
+        </p>
+
+        <section class="secao-associacao">
+            <div class="formulario-associacao">
+
+                <h3>Formulário de Associação</h3>
+
+                <form method="get" action="agradecimento.html">
+
+                    <label for="primeiroNome">Primeiro nome:</label>
+                    <input type="text" id="primeiroNome" name="primeiroNome"
+                        autocomplete="given-name" required>
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome"
+                        autocomplete="family-name" required>
+
+                    <label for="cargo">Cargo na organização:</label>
+                    <input type="text" id="cargo" name="cargo"
+                        autocomplete="organization-title"
+                        pattern="[A-Za-zÀ-ÖØ-öø-ÿ -]{7,}"
+                        title="Digite pelo menos 7 caracteres, usando somente letras, espaços ou hífens.">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email"
+                        placeholder="exemplo@email.com"
+                        autocomplete="email" required>
+
+                    <label for="telefone">Telefone celular:</label>
+                    <input type="tel" id="telefone" name="telefone"
+                        autocomplete="tel" required>
+
+                    <label for="organizacao">Nome da organização:</label>
+                    <input type="text" id="organizacao" name="organizacao"
+                        autocomplete="organization" required>
+
+                    <label for="nivel">Nível de associação:</label>
+                    <select id="nivel" name="nivel" required>
+                        <option value="">Selecione um nível</option>
+                        <option value="np">Não Lucrativo</option>
+                        <option value="bronze">Bronze</option>
+                        <option value="silver">Prata</option>
+                        <option value="gold">Ouro</option>
+                    </select>
+
+                    <label for="descricao">Descrição da organização:</label>
+                    <textarea id="descricao" name="descricao" rows="5"></textarea>
+
+                    <input type="hidden" id="dataHora" name="dataHora">
+
+                    <button type="submit">Enviar solicitação</button>
+
+                </form>
+            </div>
+
+            <aside class="cartoes-associacao">
+                <h3>Nossos níveis de associação</h3>
+
+                <div class="cartao-membro">
+                    <h4>Não Lucrativo</h4>
+                    <p>Benefícios para organizações sem fins lucrativos.</p>
+                    <button type="button" data-dialog="dialog-np">Conhecer benefícios</button>
+                </div>
+
+                <div class="cartao-membro">
+                    <h4>Bronze</h4>
+                    <p>Uma oportunidade para fortalecer sua empresa.</p>
+                    <button type="button" data-dialog="dialog-bronze">Conhecer benefícios</button>
+                </div>
+
+                <div class="cartao-membro">
+                    <h4>Prata</h4>
+                    <p>Mais visibilidade e oportunidades de negócios.</p>
+                    <button type="button" data-dialog="dialog-prata">Conhecer benefícios</button>
+                </div>
+
+                <div class="cartao-membro">
+                    <h4>Ouro</h4>
+                    <p>Máxima visibilidade e benefícios exclusivos.</p>
+                    <button type="button" data-dialog="dialog-ouro">Conhecer benefícios</button>
+                </div>
+            </aside>
+        </section>
+
+        <dialog id="dialog-np">
+            <h3>Associação Não Lucrativa</h3>
+            <p>Participação em atividades comunitárias e acesso a recursos básicos da Câmara.</p>
+            <button type="button" class="fechar-dialog">Fechar</button>
+        </dialog>
+
+        <dialog id="dialog-bronze">
+            <h3>Associação Bronze</h3>
+            <p>Inclui os benefícios básicos e descontos em treinamentos e eventos selecionados.</p>
+            <button type="button" class="fechar-dialog">Fechar</button>
+        </dialog>
+
+        <dialog id="dialog-prata">
+            <h3>Associação Prata</h3>
+            <p>Inclui os benefícios Bronze, publicidade no diretório e destaque em eventos da Câmara.</p>
+            <button type="button" class="fechar-dialog">Fechar</button>
+        </dialog>
+
+        <dialog id="dialog-ouro">
+            <h3>Associação Ouro</h3>
+            <p>Inclui os benefícios Prata, publicidade em destaque, convites especiais e oportunidades exclusivas de divulgação.</p>
+            <button type="button" class="fechar-dialog">Fechar</button>
+        </dialog>
+
+    </main>
+
+    <footer>
+        <p>Câmara de Comércio de Rio das Ostras - RJ</p>
+        <p>Contato: <a href="mailto:contato@camarario.org">contato@camarario.org</a></p>
+        <p>Desenvolvido por Ravanny da Silva Trajano Galvão Navarro</p>
+        <p>WDD 231 | <span id="anoAtual"></span></p>
+        <p>Última modificação: <span id="ultimaModificacao"></span></p>
+    </footer>
+
+</body>
+</html>

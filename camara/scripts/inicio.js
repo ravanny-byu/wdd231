@@ -19,8 +19,46 @@ const previsaoDias = document.querySelector("#previsaoDias");
 // ==========================================
 
 if (botaoMenu && menu) {
+
+    // Abre e fecha o menu
     botaoMenu.addEventListener("click", () => {
-        menu.classList.toggle("aberto");
+        const menuAberto = menu.classList.toggle("aberto");
+
+        botaoMenu.setAttribute("aria-expanded", menuAberto);
+        botaoMenu.setAttribute(
+            "aria-label",
+            menuAberto
+                ? "Fechar menu de navegação"
+                : "Abrir menu de navegação"
+        );
+    });
+
+    // Fecha o menu ao pressionar Escape
+    document.addEventListener("keydown", (evento) => {
+        if (evento.key === "Escape" && menu.classList.contains("aberto")) {
+            menu.classList.remove("aberto");
+
+            botaoMenu.setAttribute("aria-expanded", "false");
+            botaoMenu.setAttribute(
+                "aria-label",
+                "Abrir menu de navegação"
+            );
+
+            botaoMenu.focus();
+        }
+    });
+
+    // Fecha o menu após selecionar uma página
+    menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("aberto");
+
+            botaoMenu.setAttribute("aria-expanded", "false");
+            botaoMenu.setAttribute(
+                "aria-label",
+                "Abrir menu de navegação"
+            );
+        });
     });
 }
 
@@ -44,6 +82,12 @@ if (ultimaModificacao) {
 // ==========================================
 
 async function carregarDestaques() {
+
+    // Evita executar se o elemento não existir
+    if (!empresasDestaque) {
+        return;
+    }
+
     try {
         const resposta = await fetch("dados/membros.json");
 
@@ -70,13 +114,21 @@ async function carregarDestaques() {
     } catch (erro) {
         console.error("Erro ao carregar destaques:", erro);
 
-        empresasDestaque.innerHTML =
-            "<p>Não foi possível carregar as empresas em destaque.</p>";
+        empresasDestaque.textContent =
+            "Não foi possível carregar as empresas em destaque.";
     }
 }
 
-// Cria os cartões das empresas
+// ==========================================
+// CRIAR CARTÕES DAS EMPRESAS
+// ==========================================
+
 function mostrarDestaques(empresas) {
+
+    if (!empresasDestaque) {
+        return;
+    }
+
     empresasDestaque.innerHTML = "";
 
     if (empresas.length === 0) {
@@ -86,6 +138,7 @@ function mostrarDestaques(empresas) {
     }
 
     empresas.forEach((empresa) => {
+
         const cartao = document.createElement("article");
         cartao.classList.add("cartao-destaque");
 
@@ -101,7 +154,8 @@ function mostrarDestaques(empresas) {
 
         // Categoria
         const categoria = document.createElement("p");
-        categoria.textContent = empresa.category || "Empresa associada";
+        categoria.textContent =
+            empresa.category || "Empresa associada";
 
         // Endereço
         const endereco = document.createElement("p");
@@ -120,7 +174,8 @@ function mostrarDestaques(empresas) {
             3: "Associado Ouro"
         };
 
-        nivel.textContent = `Associação: ${nomesNiveis[empresa.membershipLevel]}`;
+        nivel.textContent =
+            `Associação: ${nomesNiveis[empresa.membershipLevel] || "Associado"}`;
 
         // Adiciona informações ao cartão
         cartao.append(
@@ -134,6 +189,7 @@ function mostrarDestaques(empresas) {
 
         // Link do site
         if (empresa.website && empresa.website.trim() !== "") {
+
             const site = document.createElement("a");
 
             site.href = empresa.website;
@@ -156,9 +212,24 @@ function mostrarDestaques(empresas) {
 const latitude = -22.5269;
 const longitude = -41.9450;
 
-// A chave será carregada de config.js
+// ==========================================
+// CARREGAR CLIMA
+// ==========================================
+
 async function carregarClima() {
+
+    // Verifica se os elementos necessários existem
+    if (
+        !temperatura ||
+        !descricaoTempo ||
+        !sensacaoTermica ||
+        !previsaoDias
+    ) {
+        return;
+    }
+
     try {
+
         if (!window.OPENWEATHER_API_KEY) {
             throw new Error("Chave da API não configurada.");
         }
@@ -201,6 +272,7 @@ async function carregarClima() {
         mostrarPrevisao(dadosPrevisao.list);
 
     } catch (erro) {
+
         console.error("Erro no clima:", erro);
 
         temperatura.textContent = "Indisponível";
@@ -217,12 +289,18 @@ async function carregarClima() {
 // ==========================================
 
 function mostrarPrevisao(lista) {
+
+    if (!previsaoDias) {
+        return;
+    }
+
     previsaoDias.innerHTML = "";
 
     const previsoesPorDia = {};
 
     // Agrupa as previsões por data
     lista.forEach((item) => {
+
         const data = item.dt_txt.split(" ")[0];
 
         if (!previsoesPorDia[data]) {
@@ -237,6 +315,7 @@ function mostrarPrevisao(lista) {
     // Considera somente os próximos três dias
     const proximosDias = Object.keys(previsoesPorDia)
         .filter((data) => {
+
             const dataUTC = new Date(`${data}T00:00:00Z`);
 
             const hojeUTC = Date.UTC(
@@ -255,10 +334,12 @@ function mostrarPrevisao(lista) {
         .slice(0, 3);
 
     proximosDias.forEach((data) => {
+
         const previsoes = previsoesPorDia[data];
 
         // Escolhe o horário mais próximo de 12h
         const previsao = previsoes.reduce((melhor, atual) => {
+
             const horaMelhor = Number(melhor.dt_txt.slice(11, 13));
             const horaAtual = Number(atual.dt_txt.slice(11, 13));
 
@@ -286,10 +367,12 @@ function mostrarPrevisao(lista) {
         });
 
         const temp = document.createElement("p");
+
         temp.textContent =
             `${Math.round(previsao.main.temp)} °C`;
 
         const descricao = document.createElement("p");
+
         descricao.textContent =
             previsao.weather[0].description;
 
