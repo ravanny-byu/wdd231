@@ -36,11 +36,10 @@ header {
     object-position: left center;
     flex-shrink: 0;
 }
-
-
-
-.cabecalho h1 {
+.cabecalho span {
+    display: block;
     font-size: 1.2rem;
+    font-weight: 700;
     margin: 0;
 }
 
