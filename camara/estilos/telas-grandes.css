@@ -1,9 +1,16 @@
 @media screen and (min-width: 700px) {
-    header {
+    header,
+    footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 5%;
+    }
+
+    footer {
+        justify-content: space-around;
+        text-align: left;
+        gap: 2rem;
     }
 
     #menuButton {
@@ -13,7 +20,6 @@
     nav {
         display: flex;
         flex-direction: row;
-        align-items: center;
         margin-top: 0;
     }
 
@@ -48,7 +54,6 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-        align-items: start;
     }
 
     .eventos-home > h2,
@@ -64,35 +69,32 @@
         border-left-color: var(--dourado-escuro);
     }
 
-    .secao-tempo {
+    .secao-tempo,
+    .destaques {
         margin: 3rem 0;
+    }
+
+    .secao-tempo {
         padding: 2rem;
-        border-radius: 12px;
     }
 
     .tempo-atual {
         padding: 1.5rem;
-        border-radius: 10px;
     }
 
     .previsao-tempo {
         margin-top: 2rem;
     }
 
-    #previsaoDias {
+    #previsaoDias,
+    .grade-empresas {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
     }
 
     .cartao-previsao {
         padding: 1.2rem;
-        border-radius: 10px;
         border-bottom-width: 4px;
         border-bottom-color: var(--dourado-escuro);
-    }
-
-    .destaques {
-        margin: 3rem 0;
     }
 
     .grade-destaques {
@@ -103,8 +105,6 @@
 
     .cartao-destaque {
         padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
     }
 
@@ -114,14 +114,6 @@
 
     .cartao-destaque img {
         height: 200px;
-    }
-
-    .cartao-destaque a {
-        margin-top: 1rem;
-    }
-
-    .grade-empresas {
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .lista-empresas .cartao-empresa {
@@ -135,13 +127,6 @@
 
     .botao-cta:hover {
         background-color: var(--dourado-escuro);
-    }
-
-    footer {
-        display: flex;
-        justify-content: space-around;
-        text-align: left;
-        gap: 2rem;
     }
 }
 
@@ -165,8 +150,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .cartao-destaque,
-    .botao-cta {
+    :is(.cartao-destaque, .botao-cta) {
         transition: none;
     }
 

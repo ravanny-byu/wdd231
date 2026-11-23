@@ -36,10 +36,27 @@ body {
     top: 1rem;
 }
 
-header {
+header,
+footer {
     background-color: var(--azul-principal);
     color: var(--branco);
     padding: 1rem;
+}
+
+footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--dourado);
+}
+
+.rodape-titulo {
+    color: var(--dourado);
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .cabecalho {
@@ -56,15 +73,14 @@ header {
     flex-shrink: 0;
 }
 
+.cabecalho p {
+    margin: 0;
+}
+
 .titulo-site {
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
-    margin: 0;
-}
-
-.cabecalho p {
-    margin: 0;
 }
 
 #menuButton {
@@ -106,7 +122,14 @@ main {
 }
 
 main h1,
-main h2 {
+main h2,
+.cartao-empresa h3,
+.eventos-home article h3,
+.cartao-previsao h4,
+.cartao-destaque h3,
+.cartao-membro h3,
+dialog h2,
+.resumo-associacao h2 {
     color: var(--azul-principal);
 }
 
@@ -133,7 +156,9 @@ main h2 {
     color: var(--azul-principal);
 }
 
-.grade-empresas {
+.grade-empresas,
+#previsaoDias,
+.grade-destaques {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -154,11 +179,9 @@ main h2 {
     border-radius: 5px;
 }
 
-.cartao-empresa h3 {
-    color: var(--azul-principal);
-}
-
-.cartao-empresa a {
+.cartao-empresa a,
+.cartao-destaque a {
+    display: inline-block;
     color: var(--azul-principal);
     font-weight: 700;
 }
@@ -187,12 +210,15 @@ main h2 {
     padding: 0 0.75rem;
 }
 
-.hero img {
+.hero img,
+.cartao-previsao {
     width: 100%;
     border-radius: 10px;
 }
 
-.eventos-home {
+.eventos-home,
+.secao-tempo,
+.destaques {
     margin: 2rem 0;
 }
 
@@ -205,13 +231,7 @@ main h2 {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
-.eventos-home article h3 {
-    color: var(--azul-principal);
-    margin-top: 0;
-}
-
 .secao-tempo {
-    margin: 2rem 0;
     padding: 1.2rem;
     background-color: var(--fundo-secao-clara);
     border-radius: 10px;
@@ -229,42 +249,22 @@ main h2 {
     margin-top: 0;
 }
 
-.tempo-atual p {
-    margin: 0.5rem 0;
-}
-
 .previsao-tempo {
     margin-top: 1.5rem;
-}
-
-#previsaoDias {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
 }
 
 .cartao-previsao {
     background-color: var(--branco);
     padding: 1rem;
     text-align: center;
-    border-radius: 8px;
     border-bottom: 3px solid var(--dourado);
 }
 
-.cartao-previsao h4 {
-    color: var(--azul-principal);
-    margin-top: 0;
-}
-
 .destaques {
-    margin: 2rem 0;
     text-align: center;
 }
 
 .grade-destaques {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
     margin: 1.5rem 0;
 }
 
@@ -283,22 +283,13 @@ main h2 {
     margin-bottom: 1rem;
 }
 
-.cartao-destaque h3 {
-    color: var(--azul-principal);
-}
-
-.cartao-destaque p {
+.cartao-destaque p,
+.resumo-associacao p {
     overflow-wrap: anywhere;
 }
 
-.cartao-destaque a {
-    display: inline-block;
-    margin-top: 0.7rem;
-    color: var(--azul-principal);
-    font-weight: 700;
-}
-
-.botao-cta {
+.botao-cta,
+.botao-voltar {
     display: inline-block;
     background-color: var(--azul-principal);
     color: var(--branco);
@@ -307,7 +298,6 @@ main h2 {
     text-decoration: none;
     font-weight: 700;
     border-radius: 6px;
-    text-align: center;
 }
 
 .botao-cta:hover {
@@ -315,7 +305,11 @@ main h2 {
     color: var(--azul-principal);
 }
 
-/* Página de associação */
+.botao-voltar:hover {
+    background-color: var(--azul-hover);
+}
+
+/* Associação e agradecimento */
 .secao-associacao {
     display: grid;
     grid-template-columns: 1fr;
@@ -326,23 +320,23 @@ main h2 {
 }
 
 .formulario-associacao,
-.cartoes-associacao {
+.cartoes-associacao,
+.resumo-associacao {
     background-color: var(--branco);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
-.formulario-associacao {
+.formulario-associacao,
+.cartoes-associacao {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
 }
 
-.formulario-associacao h2,
-.cartoes-associacao h2 {
-    color: var(--azul-principal);
-    margin-top: 0;
+.cartoes-associacao {
+    gap: 1rem;
 }
 
 .formulario-associacao label {
@@ -363,7 +357,8 @@ main h2 {
 }
 
 .formulario-associacao button,
-.cartao-membro button {
+.cartao-membro button,
+dialog button {
     background-color: var(--azul-principal);
     color: var(--branco);
     border: none;
@@ -377,14 +372,9 @@ main h2 {
 }
 
 .formulario-associacao button:hover,
-.cartao-membro button:hover {
+.cartao-membro button:hover,
+dialog button:hover {
     background-color: var(--azul-hover);
-}
-
-.cartoes-associacao {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 .cartao-membro {
@@ -396,41 +386,15 @@ main h2 {
     animation: entradaCartao 0.8s ease both;
 }
 
-.cartao-membro:nth-of-type(2) {
-    animation-delay: 0.15s;
-}
-
-.cartao-membro:nth-of-type(3) {
-    animation-delay: 0.3s;
-}
-
-.cartao-membro:nth-of-type(4) {
-    animation-delay: 0.45s;
-}
-
-.cartao-membro h3 {
-    color: var(--azul-principal);
-    margin-top: 0;
-    font-size: 1.2rem;
-}
-
-.cartao-membro p {
-    line-height: 1.5;
-}
+.cartao-membro:nth-of-type(2) { animation-delay: 0.15s; }
+.cartao-membro:nth-of-type(3) { animation-delay: 0.3s; }
+.cartao-membro:nth-of-type(4) { animation-delay: 0.45s; }
 
 @keyframes entradaCartao {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Janelas de benefícios */
 dialog {
     width: min(90%, 450px);
     border: none;
@@ -443,28 +407,10 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
-dialog h2 {
-    color: var(--azul-principal);
-    margin-top: 0;
-}
-
-dialog p {
-    line-height: 1.6;
-}
-
 dialog button {
-    background-color: var(--azul-principal);
-    color: var(--branco);
-    border: none;
-    border-radius: 6px;
     padding: 0.7rem 1.2rem;
 }
 
-dialog button:hover {
-    background-color: var(--azul-hover);
-}
-
-/* Página de agradecimento */
 .pagina-agradecimento {
     max-width: 850px;
     margin: 2rem auto;
@@ -472,62 +418,15 @@ dialog button:hover {
 }
 
 .resumo-associacao {
-    background-color: var(--branco);
-    padding: 1.5rem;
     margin: 2rem 0;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .resumo-associacao h2 {
-    color: var(--azul-principal);
     border-bottom: 2px solid var(--dourado);
     padding-bottom: 0.8rem;
 }
 
-.resumo-associacao p {
-    line-height: 1.7;
-    overflow-wrap: anywhere;
-}
-
-.botao-voltar {
-    display: inline-block;
-    background-color: var(--azul-principal);
-    color: var(--branco);
-    padding: 0.9rem 1.3rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.botao-voltar:hover {
-    background-color: var(--azul-hover);
-}
-
-/* Rodapé */
-footer {
-    background-color: var(--azul-principal);
-    color: var(--branco);
-    padding: 2rem 1rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-footer a {
-    color: var(--dourado);
-}
-
-.rodape-titulo {
-    color: var(--dourado);
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+:is(button, a, input, select, textarea):focus-visible {
     outline: 3px solid var(--dourado);
     outline-offset: 2px;
 }
