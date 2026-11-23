@@ -1,10 +1,13 @@
-
-/* Identidade visual da Câmara de Comércio */
-
 :root {
     --azul-principal: #183153;
+    --azul-hover: #28517f;
     --dourado: #D6A84B;
+    --dourado-escuro: #c49a35;
     --fundo: #F4F6F8;
+    --fundo-card-suave: #f1f4f8;
+    --fundo-secao-clara: #E9EEF4;
+    --borda-suave: #DDE2E8;
+    --borda-campo: #5A6577;
     --texto: #202833;
     --branco: #FFFFFF;
 }
@@ -14,6 +17,23 @@ body {
     background-color: var(--fundo);
     color: var(--texto);
     line-height: 1.6;
+}
+
+.pular-conteudo {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background-color: var(--dourado);
+    color: var(--azul-principal);
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.pular-conteudo:focus {
+    left: 1rem;
+    top: 1rem;
 }
 
 header {
@@ -28,7 +48,6 @@ header {
     gap: 1rem;
 }
 
-
 .cabecalho img {
     width: 75px;
     height: 75px;
@@ -36,7 +55,8 @@ header {
     object-position: left center;
     flex-shrink: 0;
 }
-.cabecalho span {
+
+.titulo-site {
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
@@ -76,6 +96,7 @@ nav a:hover,
 nav a.ativo {
     background-color: var(--dourado);
     color: var(--azul-principal);
+    font-weight: 600;
 }
 
 main {
@@ -84,10 +105,12 @@ main {
     padding: 1rem;
 }
 
+main h1,
 main h2 {
     color: var(--azul-principal);
 }
 
+/* Diretório */
 .botoes-visualizacao {
     display: flex;
     flex-wrap: wrap;
@@ -101,9 +124,11 @@ main h2 {
     border: none;
     padding: 0.7rem 1rem;
     border-radius: 5px;
+    font-weight: 600;
 }
 
-.botoes-visualizacao button:hover {
+.botoes-visualizacao button:hover,
+.botoes-visualizacao button[aria-pressed="true"] {
     background-color: var(--dourado);
     color: var(--azul-principal);
 }
@@ -116,7 +141,7 @@ main h2 {
 
 .cartao-empresa {
     background-color: var(--branco);
-    border: 1px solid #DDE2E8;
+    border: 1px solid var(--borda-suave);
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
@@ -135,7 +160,7 @@ main h2 {
 
 .cartao-empresa a {
     color: var(--azul-principal);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .lista-empresas {
@@ -156,34 +181,17 @@ main h2 {
     height: 100px;
 }
 
-footer {
-    background-color: var(--azul-principal);
-    color: var(--branco);
-    padding: 2rem 1rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-footer h2 {
-    color: var(--dourado);
-    font-size: 1.2rem;
-}
+/* Página inicial */
 .hero {
-    margin: 18px auto;
-    padding: 0 12px;
+    margin: 1.125rem auto;
+    padding: 0 0.75rem;
 }
 
 .hero img {
     width: 100%;
-    height: auto;
     border-radius: 10px;
 }
 
-/* =====================================
-   PÁGINA INICIAL - CELULARES
-===================================== */
-
-/* EVENTOS */
 .eventos-home {
     margin: 2rem 0;
 }
@@ -202,11 +210,10 @@ footer h2 {
     margin-top: 0;
 }
 
-/* CLIMA */
 .secao-tempo {
     margin: 2rem 0;
     padding: 1.2rem;
-    background-color: #E9EEF4;
+    background-color: var(--fundo-secao-clara);
     border-radius: 10px;
 }
 
@@ -219,6 +226,7 @@ footer h2 {
 
 .tempo-atual h3 {
     color: var(--dourado);
+    margin-top: 0;
 }
 
 .tempo-atual p {
@@ -248,7 +256,6 @@ footer h2 {
     margin-top: 0;
 }
 
-/* EMPRESAS EM DESTAQUE */
 .destaques {
     margin: 2rem 0;
     text-align: center;
@@ -264,13 +271,12 @@ footer h2 {
 .cartao-destaque {
     background-color: var(--branco);
     padding: 1.2rem;
-    border: 1px solid #DDE2E8;
+    border: 1px solid var(--borda-suave);
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
 .cartao-destaque img {
-    display: block;
     width: 100%;
     height: 180px;
     object-fit: contain;
@@ -289,10 +295,9 @@ footer h2 {
     display: inline-block;
     margin-top: 0.7rem;
     color: var(--azul-principal);
-    font-weight: bold;
+    font-weight: 700;
 }
 
-/* BOTÃO DE CHAMADA PARA AÇÃO */
 .botao-cta {
     display: inline-block;
     background-color: var(--azul-principal);
@@ -310,49 +315,38 @@ footer h2 {
     color: var(--azul-principal);
 }
 
-/* ACESSIBILIDADE */
-button:focus-visible,
-a:focus-visible {
-    outline: 3px solid var(--dourado);
-    outline-offset: 3px;
-}
-
-/* ===== PÁGINA DE ASSOCIAÇÃO ===== */
-
-
+/* Página de associação */
 .secao-associacao {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 1rem;
+    padding: 1rem 0;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .formulario-associacao,
 .cartoes-associacao {
-    background-color: #ffffff;
+    background-color: var(--branco);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .formulario-associacao {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 
 .formulario-associacao h2,
 .cartoes-associacao h2 {
-    color: #183153;
+    color: var(--azul-principal);
     margin-top: 0;
 }
 
 .formulario-associacao label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    display: block;
     font-weight: 600;
     margin-top: 0.7rem;
 }
@@ -362,29 +356,20 @@ a:focus-visible {
 .formulario-associacao textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #999999;
+    border: 1px solid var(--borda-campo);
     border-radius: 6px;
-    font: inherit;
-    box-sizing: border-box;
-}
-
-.formulario-associacao input:focus,
-.formulario-associacao select:focus,
-.formulario-associacao textarea:focus {
-    outline: 3px solid #d69e36;
-    outline-offset: 2px;
+    color: var(--texto);
+    background-color: var(--branco);
 }
 
 .formulario-associacao button,
 .cartao-membro button {
-    background-color: #183153;
-    color: #ffffff;
+    background-color: var(--azul-principal);
+    color: var(--branco);
     border: none;
     border-radius: 6px;
     padding: 0.85rem 1rem;
-    font: inherit;
     font-weight: 600;
-    cursor: pointer;
 }
 
 .formulario-associacao button {
@@ -393,7 +378,7 @@ a:focus-visible {
 
 .formulario-associacao button:hover,
 .cartao-membro button:hover {
-    background-color: #28517f;
+    background-color: var(--azul-hover);
 }
 
 .cartoes-associacao {
@@ -403,8 +388,8 @@ a:focus-visible {
 }
 
 .cartao-membro {
-    background-color: #f1f4f8;
-    border-left: 5px solid #d69e36;
+    background-color: var(--fundo-card-suave);
+    border-left: 5px solid var(--dourado);
     border-radius: 8px;
     padding: 1.2rem;
     text-align: center;
@@ -416,7 +401,7 @@ a:focus-visible {
 }
 
 .cartao-membro:nth-of-type(3) {
-    animation-delay: 0.30s;
+    animation-delay: 0.3s;
 }
 
 .cartao-membro:nth-of-type(4) {
@@ -424,7 +409,7 @@ a:focus-visible {
 }
 
 .cartao-membro h3 {
-    color: #183153;
+    color: var(--azul-principal);
     margin-top: 0;
     font-size: 1.2rem;
 }
@@ -445,9 +430,7 @@ a:focus-visible {
     }
 }
 
-
-/* ===== JANELAS DE BENEFÍCIOS ===== */
-
+/* Janelas de benefícios */
 dialog {
     width: min(90%, 450px);
     border: none;
@@ -460,8 +443,9 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
-dialog h3 {
-    color: #183153;
+dialog h2 {
+    color: var(--azul-principal);
+    margin-top: 0;
 }
 
 dialog p {
@@ -469,54 +453,35 @@ dialog p {
 }
 
 dialog button {
-    background-color: #183153;
-    color: #ffffff;
+    background-color: var(--azul-principal);
+    color: var(--branco);
     border: none;
     border-radius: 6px;
     padding: 0.7rem 1.2rem;
-    cursor: pointer;
-    font: inherit;
 }
 
 dialog button:hover {
-    background-color: #28517f;
+    background-color: var(--azul-hover);
 }
 
-button:focus-visible,
-a:focus-visible {
-    outline: 3px solid #d69e36;
-    outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .cartao-membro {
-        animation: none;
-    }
-}
-
-/* ===== PÁGINA DE AGRADECIMENTO ===== */
-
+/* Página de agradecimento */
 .pagina-agradecimento {
     max-width: 850px;
     margin: 2rem auto;
     padding: 1.5rem;
 }
 
-.pagina-agradecimento h2 {
-    color: #183153;
-}
-
 .resumo-associacao {
-    background-color: #ffffff;
+    background-color: var(--branco);
     padding: 1.5rem;
     margin: 2rem 0;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
-.resumo-associacao h3 {
-    color: #183153;
-    border-bottom: 2px solid #d69e36;
+.resumo-associacao h2 {
+    color: var(--azul-principal);
+    border-bottom: 2px solid var(--dourado);
     padding-bottom: 0.8rem;
 }
 
@@ -527,8 +492,8 @@ a:focus-visible {
 
 .botao-voltar {
     display: inline-block;
-    background-color: #183153;
-    color: #ffffff;
+    background-color: var(--azul-principal);
+    color: var(--branco);
     padding: 0.9rem 1.3rem;
     border-radius: 6px;
     text-decoration: none;
@@ -536,5 +501,39 @@ a:focus-visible {
 }
 
 .botao-voltar:hover {
-    background-color: #28517f;
+    background-color: var(--azul-hover);
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--dourado);
+}
+
+.rodape-titulo {
+    color: var(--dourado);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cartao-membro {
+        animation: none;
+    }
 }

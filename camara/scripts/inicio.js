@@ -1,10 +1,3 @@
-
-// ==========================================
-// CÂMARA DE COMÉRCIO DE RIO DAS OSTRAS
-// Página inicial
-// ==========================================
-
-// ELEMENTOS DO HTML
 const botaoMenu = document.querySelector("#menuButton");
 const menu = document.querySelector("#menu");
 const empresasDestaque = document.querySelector("#empresasDestaque");
@@ -12,59 +5,50 @@ const empresasDestaque = document.querySelector("#empresasDestaque");
 const temperatura = document.querySelector("#temperatura");
 const descricaoTempo = document.querySelector("#descricaoTempo");
 const sensacaoTermica = document.querySelector("#sensacaoTermica");
+const iconeTempo = document.querySelector("#iconeTempo");
 const previsaoDias = document.querySelector("#previsaoDias");
 
-// ==========================================
-// MENU DE NAVEGAÇÃO
-// ==========================================
+function capitalizar(texto) {
+    if (!texto) return "";
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
+function embaralhar(lista) {
+    const copia = [...lista];
+    for (let i = copia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia;
+}
 
 if (botaoMenu && menu) {
-
-    // Abre e fecha o menu
     botaoMenu.addEventListener("click", () => {
         const menuAberto = menu.classList.toggle("aberto");
-
-        botaoMenu.setAttribute("aria-expanded", menuAberto);
+        botaoMenu.setAttribute("aria-expanded", String(menuAberto));
         botaoMenu.setAttribute(
             "aria-label",
-            menuAberto
-                ? "Fechar menu de navegação"
-                : "Abrir menu de navegação"
+            menuAberto ? "Fechar menu de navegação" : "Abrir menu de navegação"
         );
     });
 
-    // Fecha o menu ao pressionar Escape
     document.addEventListener("keydown", (evento) => {
         if (evento.key === "Escape" && menu.classList.contains("aberto")) {
             menu.classList.remove("aberto");
-
             botaoMenu.setAttribute("aria-expanded", "false");
-            botaoMenu.setAttribute(
-                "aria-label",
-                "Abrir menu de navegação"
-            );
-
+            botaoMenu.setAttribute("aria-label", "Abrir menu de navegação");
             botaoMenu.focus();
         }
     });
 
-    // Fecha o menu após selecionar uma página
     menu.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
             menu.classList.remove("aberto");
-
             botaoMenu.setAttribute("aria-expanded", "false");
-            botaoMenu.setAttribute(
-                "aria-label",
-                "Abrir menu de navegação"
-            );
+            botaoMenu.setAttribute("aria-label", "Abrir menu de navegação");
         });
     });
 }
-
-// ==========================================
-// RODAPÉ
-// ==========================================
 
 const anoAtual = document.querySelector("#anoAtual");
 const ultimaModificacao = document.querySelector("#ultimaModificacao");
@@ -77,126 +61,77 @@ if (ultimaModificacao) {
     ultimaModificacao.textContent = document.lastModified;
 }
 
-// ==========================================
-// EMPRESAS EM DESTAQUE
-// ==========================================
-
 async function carregarDestaques() {
-
-    // Evita executar se o elemento não existir
-    if (!empresasDestaque) {
-        return;
-    }
+    if (!empresasDestaque) return;
 
     try {
         const resposta = await fetch("dados/membros.json");
-
         if (!resposta.ok) {
-            throw new Error("Erro ao carregar membros.");
+            throw new Error(`Erro HTTP ${resposta.status} ao carregar membros.`);
         }
 
         const empresas = await resposta.json();
+        const empresasElegiveis = empresas.filter(
+            (empresa) => empresa.membershipLevel === 2 || empresa.membershipLevel === 3
+        );
 
-        // Seleciona somente empresas Ouro e Prata
-        const empresasElegiveis = empresas.filter((empresa) => {
-            return empresa.membershipLevel === 2 ||
-                   empresa.membershipLevel === 3;
-        });
-
-        // Embaralha as empresas aleatoriamente
-        empresasElegiveis.sort(() => Math.random() - 0.5);
-
-        // Seleciona três empresas
-        const selecionadas = empresasElegiveis.slice(0, 3);
-
+        const selecionadas = embaralhar(empresasElegiveis).slice(0, 3);
         mostrarDestaques(selecionadas);
-
     } catch (erro) {
         console.error("Erro ao carregar destaques:", erro);
-
-        empresasDestaque.textContent =
-            "Não foi possível carregar as empresas em destaque.";
+        empresasDestaque.textContent = "Não foi possível carregar as empresas em destaque.";
     }
 }
 
-// ==========================================
-// CRIAR CARTÕES DAS EMPRESAS
-// ==========================================
-
 function mostrarDestaques(empresas) {
-
-    if (!empresasDestaque) {
-        return;
-    }
-
+    if (!empresasDestaque) return;
     empresasDestaque.innerHTML = "";
 
     if (empresas.length === 0) {
-        empresasDestaque.textContent =
-            "Nenhuma empresa Ouro ou Prata encontrada.";
+        empresasDestaque.textContent = "Nenhuma empresa Ouro ou Prata encontrada.";
         return;
     }
 
-    empresas.forEach((empresa) => {
+    const nomesNiveis = {
+        1: "Associado comum",
+        2: "Associado Prata",
+        3: "Associado Ouro"
+    };
 
+    empresas.forEach((empresa) => {
         const cartao = document.createElement("article");
         cartao.classList.add("cartao-destaque");
 
-        // Logotipo
         const imagem = document.createElement("img");
         imagem.src = `imagens/${empresa.image}`;
         imagem.alt = `Logotipo de ${empresa.name}`;
         imagem.loading = "lazy";
+        imagem.width = 200;
+        imagem.height = 120;
 
-        // Nome
         const nome = document.createElement("h3");
         nome.textContent = empresa.name;
 
-        // Categoria
         const categoria = document.createElement("p");
-        categoria.textContent =
-            empresa.category || "Empresa associada";
+        categoria.textContent = empresa.category || "Empresa associada";
 
-        // Endereço
         const endereco = document.createElement("p");
         endereco.textContent = `Endereço: ${empresa.address}`;
 
-        // Telefone
         const telefone = document.createElement("p");
         telefone.textContent = `Telefone: ${empresa.phone}`;
 
-        // Nível de associação
         const nivel = document.createElement("p");
+        nivel.textContent = `Associação: ${nomesNiveis[empresa.membershipLevel] || "Associado"}`;
 
-        const nomesNiveis = {
-            1: "Associado comum",
-            2: "Associado Prata",
-            3: "Associado Ouro"
-        };
+        cartao.append(imagem, nome, categoria, endereco, telefone, nivel);
 
-        nivel.textContent =
-            `Associação: ${nomesNiveis[empresa.membershipLevel] || "Associado"}`;
-
-        // Adiciona informações ao cartão
-        cartao.append(
-            imagem,
-            nome,
-            categoria,
-            endereco,
-            telefone,
-            nivel
-        );
-
-        // Link do site
         if (empresa.website && empresa.website.trim() !== "") {
-
             const site = document.createElement("a");
-
             site.href = empresa.website;
             site.textContent = "Visitar site";
             site.target = "_blank";
             site.rel = "noopener noreferrer";
-
             cartao.appendChild(site);
         }
 
@@ -204,192 +139,114 @@ function mostrarDestaques(empresas) {
     });
 }
 
-// ==========================================
-// CLIMA ATUAL E PREVISÃO
-// ==========================================
-
-// Coordenadas de Rio das Ostras - RJ
 const latitude = -22.5269;
-const longitude = -41.9450;
-
-// ==========================================
-// CARREGAR CLIMA
-// ==========================================
+const longitude = -41.945;
 
 async function carregarClima() {
-
-    // Verifica se os elementos necessários existem
-    if (
-        !temperatura ||
-        !descricaoTempo ||
-        !sensacaoTermica ||
-        !previsaoDias
-    ) {
-        return;
-    }
+    if (!temperatura || !descricaoTempo || !sensacaoTermica || !previsaoDias) return;
 
     try {
-
-        if (!window.OPENWEATHER_API_KEY) {
-            throw new Error("Chave da API não configurada.");
-        }
-
         const chave = window.OPENWEATHER_API_KEY;
-
-        // Busca o clima atual
-        const urlAtual =
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt_br&appid=${chave}`;
-
-        const respostaAtual = await fetch(urlAtual);
-
-        if (!respostaAtual.ok) {
-            throw new Error("Erro ao consultar o clima atual.");
+        if (!chave) {
+            throw new Error("Chave da API OpenWeatherMap não configurada.");
         }
 
-        const dadosAtuais = await respostaAtual.json();
+        const urlAtual = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=pt_br&appid=${chave}`;
+        const urlPrevisao = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=pt_br&appid=${chave}`;
 
-        temperatura.textContent =
-            `${Math.round(dadosAtuais.main.temp)} °C`;
+        const [respostaAtual, respostaPrevisao] = await Promise.all([
+            fetch(urlAtual),
+            fetch(urlPrevisao)
+        ]);
 
-        descricaoTempo.textContent =
-            dadosAtuais.weather[0].description;
-
-        sensacaoTermica.textContent =
-            `${Math.round(dadosAtuais.main.feels_like)} °C`;
-
-        // Busca a previsão dos próximos dias
-        const urlPrevisao =
-            `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=pt_br&appid=${chave}`;
-
-        const respostaPrevisao = await fetch(urlPrevisao);
-
-        if (!respostaPrevisao.ok) {
-            throw new Error("Erro ao consultar a previsão.");
+        if (!respostaAtual.ok || !respostaPrevisao.ok) {
+            throw new Error("Erro ao consultar os dados meteorológicos.");
         }
 
-        const dadosPrevisao = await respostaPrevisao.json();
+        const [dadosAtuais, dadosPrevisao] = await Promise.all([
+            respostaAtual.json(),
+            respostaPrevisao.json()
+        ]);
+
+        temperatura.textContent = `${Math.round(dadosAtuais.main.temp)} °C`;
+        descricaoTempo.textContent = capitalizar(dadosAtuais.weather[0].description);
+        sensacaoTermica.textContent = `${Math.round(dadosAtuais.main.feels_like)} °C`;
+
+        if (iconeTempo && dadosAtuais.weather[0].icon) {
+            iconeTempo.src = `https://openweathermap.org/img/wn/${dadosAtuais.weather[0].icon}@2x.png`;
+            iconeTempo.alt = capitalizar(dadosAtuais.weather[0].description);
+        }
 
         mostrarPrevisao(dadosPrevisao.list);
-
     } catch (erro) {
-
         console.error("Erro no clima:", erro);
-
         temperatura.textContent = "Indisponível";
         descricaoTempo.textContent = "Não foi possível carregar";
         sensacaoTermica.textContent = "Indisponível";
-
-        previsaoDias.textContent =
-            "Não foi possível carregar a previsão do tempo.";
+        previsaoDias.textContent = "Não foi possível carregar a previsão do tempo.";
     }
 }
 
-// ==========================================
-// MOSTRAR PREVISÃO PARA TRÊS DIAS
-// ==========================================
-
 function mostrarPrevisao(lista) {
-
-    if (!previsaoDias) {
-        return;
-    }
-
+    if (!previsaoDias) return;
     previsaoDias.innerHTML = "";
 
     const previsoesPorDia = {};
-
-    // Agrupa as previsões por data
     lista.forEach((item) => {
-
         const data = item.dt_txt.split(" ")[0];
-
         if (!previsoesPorDia[data]) {
             previsoesPorDia[data] = [];
         }
-
         previsoesPorDia[data].push(item);
     });
 
     const hoje = new Date();
+    const hojeUTC = Date.UTC(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
 
-    // Considera somente os próximos três dias
     const proximosDias = Object.keys(previsoesPorDia)
         .filter((data) => {
-
             const dataUTC = new Date(`${data}T00:00:00Z`);
-
-            const hojeUTC = Date.UTC(
-                hoje.getFullYear(),
-                hoje.getMonth(),
-                hoje.getDate()
-            );
-
-            const diferenca = Math.round(
-                (dataUTC.getTime() - hojeUTC) / 86400000
-            );
-
+            const diferenca = Math.round((dataUTC.getTime() - hojeUTC) / 86400000);
             return diferenca >= 1 && diferenca <= 3;
         })
         .sort()
         .slice(0, 3);
 
     proximosDias.forEach((data) => {
-
-        const previsoes = previsoesPorDia[data];
-
-        // Escolhe o horário mais próximo de 12h
-        const previsao = previsoes.reduce((melhor, atual) => {
-
+        const previsao = previsoesPorDia[data].reduce((melhor, atual) => {
             const horaMelhor = Number(melhor.dt_txt.slice(11, 13));
             const horaAtual = Number(atual.dt_txt.slice(11, 13));
-
-            return Math.abs(horaAtual - 12) <
-                   Math.abs(horaMelhor - 12)
-                ? atual
-                : melhor;
+            return Math.abs(horaAtual - 12) < Math.abs(horaMelhor - 12) ? atual : melhor;
         });
 
         const cartao = document.createElement("article");
         cartao.classList.add("cartao-previsao");
 
         const titulo = document.createElement("h4");
-
         const [ano, mes, dia] = data.split("-");
+        const dataFormatada = new Date(Number(ano), Number(mes) - 1, Number(dia))
+            .toLocaleDateString("pt-BR", {
+                weekday: "long",
+                day: "2-digit",
+                month: "2-digit"
+            });
 
-        titulo.textContent = new Date(
-            Number(ano),
-            Number(mes) - 1,
-            Number(dia)
-        ).toLocaleDateString("pt-BR", {
-            weekday: "long",
-            day: "2-digit",
-            month: "2-digit"
-        });
+        titulo.textContent = capitalizar(dataFormatada);
 
         const temp = document.createElement("p");
-
-        temp.textContent =
-            `${Math.round(previsao.main.temp)} °C`;
+        temp.textContent = `${Math.round(previsao.main.temp)} °C`;
 
         const descricao = document.createElement("p");
-
-        descricao.textContent =
-            previsao.weather[0].description;
+        descricao.textContent = capitalizar(previsao.weather[0].description);
 
         cartao.append(titulo, temp, descricao);
-
         previsaoDias.appendChild(cartao);
     });
 
     if (proximosDias.length === 0) {
-        previsaoDias.textContent =
-            "Previsão para os próximos dias indisponível.";
+        previsaoDias.textContent = "Previsão para os próximos dias indisponível.";
     }
 }
-
-// ==========================================
-// INICIALIZAÇÃO
-// ==========================================
 
 carregarDestaques();
 carregarClima();

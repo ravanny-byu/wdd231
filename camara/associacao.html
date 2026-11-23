@@ -1,260 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Associe-se à Câmara de Comércio de Rio das Ostras e conheça os benefícios de cada nível de associação.">
     <meta name="author" content="Ravanny da Silva Trajano Galvão Navarro">
+    <meta name="theme-color" content="#183153">
 
     <title>Associe-se | Câmara de Comércio de Rio das Ostras</title>
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Associe-se à Câmara de Comércio de Rio das Ostras">
     <meta property="og:description" content="Conheça os benefícios dos níveis de associação e fortaleça sua empresa em Rio das Ostras.">
-    <meta property="og:image" content="https://ravanny-byu.github.io/wdd231/camara/imagens/logo.png">
+    <meta property="og:image" content="https://ravanny-byu.github.io/wdd231/camara/imagens/camara-social.png">
     <meta property="og:url" content="https://ravanny-byu.github.io/wdd231/camara/associacao.html">
     <meta property="og:type" content="website">
 
-    <!-- Favicon -->
     <link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="estilos/normalize.css">
     <link rel="stylesheet" href="estilos/telas-pequenas.css">
     <link rel="stylesheet" href="estilos/telas-grandes.css">
 
-    <!-- JavaScript -->
     <script src="scripts/associacao.js" defer></script>
 </head>
-
-
 <body>
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-    
-<header>
-    <div class="cabecalho">
-        <img src="imagens/logo.png" alt="Logo da Câmara de Comércio de Rio das Ostras">
-
-        <div>
-            <span>Câmara de Comércio</span>
-            <p>Rio das Ostras - RJ</p>
+    <header>
+        <div class="cabecalho">
+            <a href="index.html" aria-label="Página inicial da Câmara de Comércio de Rio das Ostras">
+                <img src="imagens/logo.png" alt="Logo da Câmara de Comércio de Rio das Ostras">
+            </a>
+            <div>
+                <span class="titulo-site">Câmara de Comércio</span>
+                <p>Rio das Ostras - RJ</p>
+            </div>
         </div>
-    </div>
 
-    <button id="menuButton" aria-label="Abrir menu de navegação" aria-expanded="false">
-        ☰
-    </button>
+        <button id="menuButton" type="button" aria-label="Abrir menu de navegação" aria-controls="menu" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
 
-    <nav id="menu">
-        <a href="index.html">Início</a>
-        <a href="diretorio.html">Diretório</a>
-        <a href="associacao.html" class="ativo" aria-current="page">Associe-se</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="eventos.html">Eventos</a>
-        <a href="podcast.html">Podcast</a>
-    </nav>
-</header>
+        <nav id="menu" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="diretorio.html">Diretório</a>
+            <a href="associacao.html" class="ativo" aria-current="page">Associe-se</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="podcast.html">Podcast</a>
+        </nav>
+    </header>
 
-
-    <main>
+    <main id="conteudo-principal">
         <h1>Associe-se à Câmara de Comércio</h1>
 
-        <section class="secao-associacao">
-
-            <form class="formulario-associacao"
-                  method="get"
-                  action="agradecimento.html">
-
+        <section class="secao-associacao" aria-label="Formulário e níveis de associação">
+            <form class="formulario-associacao" method="get" action="agradecimento.html">
                 <h2>Formulário de Associação</h2>
 
-                <label for="primeiroNome">
-                    Primeiro nome:
-                    <input
-                        type="text"
-                        id="primeiroNome"
-                        name="primeiroNome"
-                        title="Digite seu primeiro nome."
-                        autocomplete="given-name"
-                        required>
-                </label>
+                <label for="primeiroNome">Primeiro nome:</label>
+                <input type="text" id="primeiroNome" name="primeiroNome" title="Digite seu primeiro nome." autocomplete="given-name" required>
 
-                <label for="sobrenome">
-                    Sobrenome:
-                    <input
-                        type="text"
-                        id="sobrenome"
-                        name="sobrenome"
-                        title="Digite seu sobrenome."
-                        autocomplete="family-name"
-                        required>
-                </label>
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" title="Digite seu sobrenome." autocomplete="family-name" required>
 
-                <label for="cargo">
-                    Cargo na organização:
-                    <input
-                        type="text"
-                        id="cargo"
-                        name="cargo"
-                        title="Digite seu cargo com pelo menos sete caracteres. Use apenas letras, espaços e hífens."
-                        autocomplete="organization-title"
-                        pattern="[A-Za-zÀ-ÖØ-öø-ÿ -]{7,}"
-                        placeholder="Ex.: Gerente de Vendas">
-                </label>
+                <label for="cargo">Cargo na organização:</label>
+                <input type="text" id="cargo" name="cargo" title="Digite seu cargo com pelo menos sete caracteres. Use apenas letras, espaços e hífens." autocomplete="cargo-na-organizacao" pattern="[A-Za-zÀ-ÖØ-öø-ÿ -]{7,}" placeholder="Ex.: Gerente de Vendas">
 
-                <label for="email">
-                    E-mail:
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        title="Digite um endereço de e-mail válido."
-                        autocomplete="email"
-                        placeholder="exemplo@email.com"
-                        required>
-                </label>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" title="Digite um endereço de e-mail válido." autocomplete="email" placeholder="exemplo@email.com" required>
 
-                <label for="telefone">
-                    Telefone celular:
-                    <input
-                        type="tel"
-                        id="telefone"
-                        name="telefone"
-                        title="Digite seu número de telefone celular."
-                        autocomplete="tel"
-                        placeholder="(22) 99999-9999"
-                        required>
-                </label>
+                <label for="telefone">Telefone celular:</label>
+                <input type="tel" id="telefone" name="telefone" title="Digite seu número de telefone celular." autocomplete="tel" placeholder="(22) 99999-9999" required>
 
-                <label for="organizacao">
-                    Nome da organização:
-                    <input
-                        type="text"
-                        id="organizacao"
-                        name="organizacao"
-                        title="Digite o nome da sua organização."
-                        autocomplete="organization"
-                        required>
-                </label>
+                <label for="organizacao">Nome da organização:</label>
+                <input type="text" id="organizacao" name="organizacao" title="Digite o nome da sua organização." autocomplete="organizacao" required>
 
-                <label for="nivel">
-                    Nível de associação:
-                    <select
-                        id="nivel"
-                        name="nivel"
-                        title="Selecione o nível de associação desejado."
-                        required>
+                <label for="nivel">Nível de associação:</label>
+                <select id="nivel" name="nivel" title="Selecione o nível de associação desejado." required>
+                    <option value="" disabled selected>Selecione um nível</option>
+                    <option value="np">Não Lucrativo</option>
+                    <option value="bronze">Bronze</option>
+                    <option value="silver">Prata</option>
+                    <option value="gold">Ouro</option>
+                </select>
 
-                        <option value="" disabled selected>
-                            Selecione um nível
-                        </option>
+                <label for="descricao">Descrição da organização:</label>
+                <textarea id="descricao" name="descricao" title="Conte um pouco sobre sua organização." rows="4"></textarea>
 
-                        <option value="np">Não Lucrativo</option>
-                        <option value="bronze">Bronze</option>
-                        <option value="silver">Prata</option>
-                        <option value="gold">Ouro</option>
-                    </select>
-                </label>
-
-                <label for="descricao">
-                    Descrição da organização:
-                    <textarea
-                        id="descricao"
-                        name="descricao"
-                        title="Conte um pouco sobre sua organização."
-                        rows="4"></textarea>
-                </label>
-
-                <input
-                    type="hidden"
-                    id="dataHora"
-                    name="dataHora">
+                <input type="hidden" id="dataHora" name="dataHora">
 
                 <button type="submit">Enviar Solicitação</button>
-
             </form>
 
-            <section class="cartoes-associacao">
-                <h2>Níveis de Associação</h2>
+            <section class="cartoes-associacao" aria-labelledby="titulo-niveis">
+                <h2 id="titulo-niveis">Níveis de Associação</h2>
 
                 <div class="cartao-membro">
                     <h3>Não Lucrativo</h3>
                     <p>Benefícios especiais para organizações sem fins lucrativos.</p>
-                    <button type="button" data-dialog="dialogNp">
-                        Conheça os benefícios
-                    </button>
+                    <button type="button" data-dialog="dialogNp">Conheça os benefícios</button>
                 </div>
 
                 <div class="cartao-membro">
                     <h3>Bronze</h3>
                     <p>Uma oportunidade para fortalecer sua presença no comércio local.</p>
-                    <button type="button" data-dialog="dialogBronze">
-                        Conheça os benefícios
-                    </button>
+                    <button type="button" data-dialog="dialogBronze">Conheça os benefícios</button>
                 </div>
 
                 <div class="cartao-membro">
                     <h3>Prata</h3>
                     <p>Mais oportunidades de divulgação e relacionamento empresarial.</p>
-                    <button type="button" data-dialog="dialogSilver">
-                        Conheça os benefícios
-                    </button>
+                    <button type="button" data-dialog="dialogSilver">Conheça os benefícios</button>
                 </div>
 
                 <div class="cartao-membro">
                     <h3>Ouro</h3>
                     <p>Benefícios exclusivos e maior visibilidade para sua organização.</p>
-                    <button type="button" data-dialog="dialogGold">
-                        Conheça os benefícios
-                    </button>
+                    <button type="button" data-dialog="dialogGold">Conheça os benefícios</button>
                 </div>
             </section>
-
         </section>
 
-        <!-- Janelas de benefícios -->
-
-        <dialog id="dialogNp">
-            <h2>Associação Não Lucrativa</h2>
+        <dialog id="dialogNp" aria-labelledby="tituloDialogNp">
+            <h2 id="tituloDialogNp">Associação Não Lucrativa</h2>
             <p>Benefícios especiais para organizações sem fins lucrativos, incluindo participação em iniciativas comunitárias e oportunidades de networking.</p>
             <button class="fechar-dialog" type="button">Fechar</button>
         </dialog>
 
-        <dialog id="dialogBronze">
-            <h2>Associação Bronze</h2>
+        <dialog id="dialogBronze" aria-labelledby="tituloDialogBronze">
+            <h2 id="tituloDialogBronze">Associação Bronze</h2>
             <p>Inclui acesso a eventos, oportunidades de networking e divulgação da organização nos canais da Câmara.</p>
             <button class="fechar-dialog" type="button">Fechar</button>
         </dialog>
 
-        <dialog id="dialogSilver">
-            <h2>Associação Prata</h2>
+        <dialog id="dialogSilver" aria-labelledby="tituloDialogSilver">
+            <h2 id="tituloDialogSilver">Associação Prata</h2>
             <p>Inclui os benefícios Bronze, maior divulgação comercial e oportunidades adicionais de participação nos eventos.</p>
             <button class="fechar-dialog" type="button">Fechar</button>
         </dialog>
 
-        <dialog id="dialogGold">
-            <h2>Associação Ouro</h2>
+        <dialog id="dialogGold" aria-labelledby="tituloDialogGold">
+            <h2 id="tituloDialogGold">Associação Ouro</h2>
             <p>Inclui todos os benefícios anteriores, além de destaque especial, maior visibilidade e oportunidades exclusivas de relacionamento empresarial.</p>
             <button class="fechar-dialog" type="button">Fechar</button>
         </dialog>
-
     </main>
 
     <footer>
-        <p>Câmara de Comércio de Rio das Ostras - RJ</p>
-        <p>contato@camarario.com.br</p>
-        <p>Desenvolvido por Ravanny da Silva Trajano Galvão Navarro</p>
-        <p>WDD 231 - Projeto Final</p>
-        <p>&copy; <span id="anoAtual"></span></p>
-        <p>Última modificação: <span id="ultimaModificacao"></span></p>
+        <div>
+            <p class="rodape-titulo">Câmara de Comércio de Rio das Ostras</p>
+            <p>Rio das Ostras - RJ, Brasil</p>
+            <p><a href="mailto:contato@camarario.com.br">contato@camarario.com.br</a></p>
+        </div>
+        <div>
+            <p>Ravanny da Silva Trajano Galvão Navarro</p>
+            <p>WDD 231 - Desenvolvimento Web</p>
+            <p>&copy; <span id="anoAtual"></span> Câmara de Comércio</p>
+            <p>Última modificação: <span id="ultimaModificacao"></span></p>
+        </div>
     </footer>
-
 </body>
 </html>

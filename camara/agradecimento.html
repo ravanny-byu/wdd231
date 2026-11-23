@@ -1,16 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Confirmação da solicitação de associação à Câmara de Comércio de Rio das Ostras.">
     <meta name="author" content="Ravanny da Silva Trajano Galvão Navarro">
+    <meta name="theme-color" content="#183153">
 
     <title>Obrigado pela Associação | Câmara de Comércio</title>
 
     <link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="estilos/normalize.css">
     <link rel="stylesheet" href="estilos/telas-pequenas.css">
@@ -18,27 +20,22 @@
 
     <script src="scripts/agradecimento.js" defer></script>
 </head>
-
 <body>
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
     <header>
         <div class="cabecalho">
-            <a href="index.html">
-                <img src="imagens/logo.png"
-                    alt="Logo da Câmara de Comércio de Rio das Ostras">
+            <a href="index.html" aria-label="Página inicial da Câmara de Comércio de Rio das Ostras">
+                <img src="imagens/logo.png" alt="Logo da Câmara de Comércio de Rio das Ostras">
             </a>
-
             <div>
-                <h1>Câmara de Comércio</h1>
+                <span class="titulo-site">Câmara de Comércio</span>
                 <p>Rio das Ostras - RJ</p>
             </div>
         </div>
 
-        <button id="menuButton" type="button"
-            aria-label="Abrir menu de navegação"
-            aria-controls="menu"
-            aria-expanded="false">
-            ☰
+        <button id="menuButton" type="button" aria-label="Abrir menu de navegação" aria-controls="menu" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
         </button>
 
         <nav id="menu" aria-label="Navegação principal">
@@ -52,54 +49,36 @@
     </header>
 
     <main id="conteudo-principal" class="pagina-agradecimento">
+        <h1>Obrigado por sua solicitação!</h1>
+        <p>Recebemos suas informações. Confira abaixo os dados enviados para a Câmara de Comércio de Rio das Ostras.</p>
 
-        <h2>Obrigado por sua solicitação!</h2>
+        <section class="resumo-associacao" aria-labelledby="titulo-resumo" aria-live="polite">
+            <h2 id="titulo-resumo">Resumo da solicitação</h2>
 
-        <p>
-            Recebemos suas informações. Confira abaixo os dados
-            enviados para a Câmara de Comércio de Rio das Ostras.
-        </p>
-
-        <section class="resumo-associacao">
-            <h3>Resumo da solicitação</h3>
-
-            <p><strong>Primeiro nome:</strong>
-                <span id="resultadoPrimeiroNome">Não informado</span>
-            </p>
-
-            <p><strong>Sobrenome:</strong>
-                <span id="resultadoSobrenome">Não informado</span>
-            </p>
-
-            <p><strong>E-mail:</strong>
-                <span id="resultadoEmail">Não informado</span>
-            </p>
-
-            <p><strong>Telefone:</strong>
-                <span id="resultadoTelefone">Não informado</span>
-            </p>
-
-            <p><strong>Organização:</strong>
-                <span id="resultadoOrganizacao">Não informado</span>
-            </p>
-
-            <p><strong>Data e hora da solicitação:</strong>
-                <span id="resultadoDataHora">Não informado</span>
-            </p>
+            <p><strong>Primeiro nome:</strong> <span id="resultadoPrimeiroNome">Não informado</span></p>
+            <p><strong>Sobrenome:</strong> <span id="resultadoSobrenome">Não informado</span></p>
+            <p><strong>E-mail:</strong> <span id="resultadoEmail">Não informado</span></p>
+            <p><strong>Telefone:</strong> <span id="resultadoTelefone">Não informado</span></p>
+            <p><strong>Organização:</strong> <span id="resultadoOrganizacao">Não informado</span></p>
+            <p><strong>Nível:</strong> <span id="resultadoNivel">Não informado</span></p>
+            <p><strong>Data e hora da solicitação:</strong> <span id="resultadoDataHora">Não informado</span></p>
         </section>
 
-        <a class="botao-voltar" href="index.html">
-            Voltar à página inicial
-        </a>
-
+        <a class="botao-voltar" href="index.html">Voltar à página inicial</a>
     </main>
 
     <footer>
-        <p>Câmara de Comércio de Rio das Ostras - RJ</p>
-        <p>Contato: <a href="mailto:contato@camarario.org">contato@camarario.org</a></p>
-        <p>Desenvolvido por Ravanny da Silva Trajano Galvão Navarro</p>
-        <p>WDD 231</p>
+        <div>
+            <p class="rodape-titulo">Câmara de Comércio de Rio das Ostras</p>
+            <p>Rio das Ostras - RJ, Brasil</p>
+            <p><a href="mailto:contato@camarario.com.br">contato@camarario.com.br</a></p>
+        </div>
+        <div>
+            <p>Ravanny da Silva Trajano Galvão Navarro</p>
+            <p>WDD 231 - Desenvolvimento Web</p>
+            <p>&copy; <span id="anoAtual"></span> Câmara de Comércio</p>
+            <p>Última modificação: <span id="ultimaModificacao"></span></p>
+        </div>
     </footer>
-
 </body>
 </html>

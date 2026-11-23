@@ -1,266 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Câmara de Comércio de Rio das Ostras. Conectamos empresas, incentivamos negócios e fortalecemos o comércio local.">
     <meta name="author" content="Ravanny da Silva Trajano Galvão Navarro">
     <meta name="theme-color" content="#183153">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Início | Câmara de Comércio de Rio das Ostras">
     <meta property="og:description" content="Conheça a Câmara de Comércio de Rio das Ostras e descubra oportunidades para sua empresa.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ravanny-byu.github.io/wdd231/camara/imagens/camara-social.png">
     <meta property="og:url" content="https://ravanny-byu.github.io/wdd231/camara/index.html">
 
-    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <title>Início | Câmara de Comércio de Rio das Ostras</title>
 
-    <!-- Ícone -->
     <link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="estilos/normalize.css">
     <link rel="stylesheet" href="estilos/telas-pequenas.css">
     <link rel="stylesheet" href="estilos/telas-grandes.css">
 
-    <!-- JavaScript -->
-    
- <script src="scripts/config.js" defer></script>
- <script src="scripts/inicio.js" defer></script>
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/inicio.js" defer></script>
 </head>
-
 <body>
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-    <!-- Link de acessibilidade -->
-    <a class="pular-conteudo" href="#conteudo-principal">
-        Pular para o conteúdo principal
-    </a>
-
-    <!-- CABEÇALHO -->
     <header>
-
         <div class="cabecalho">
-
-            <a href="index.html" aria-label="Página inicial da Câmara de Comércio">
-                <img
-                    src="imagens/logo.png"
-                    alt="Logo da Câmara de Comércio de Rio das Ostras">
+            <a href="index.html" aria-label="Página inicial da Câmara de Comércio de Rio das Ostras">
+                <img src="imagens/logo.png" alt="Logo da Câmara de Comércio de Rio das Ostras">
             </a>
-
             <div>
-                <h1>Câmara de Comércio</h1>
+                <span class="titulo-site">Câmara de Comércio</span>
                 <p>Rio das Ostras - RJ</p>
             </div>
-
         </div>
 
-        <!-- Botão do menu -->
-        <button
-            id="menuButton"
-            type="button"
-            aria-label="Abrir menu de navegação"
-            aria-controls="menu"
-            aria-expanded="false">
-            ☰
+        <button id="menuButton" type="button" aria-label="Abrir menu de navegação" aria-controls="menu" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
         </button>
 
-        <!-- NAVEGAÇÃO -->
         <nav id="menu" aria-label="Navegação principal">
-
-            <a href="index.html" class="ativo" aria-current="page">
-                Início
-            </a>
-
-            <a href="diretorio.html">
-                Diretório
-            </a>
-
-            <a href="associacao.html">
-                Associe-se
-            </a>
-
-            <a href="sobre.html">
-                Sobre
-            </a>
-
-            <a href="eventos.html">
-                Eventos
-            </a>
-
-            <a href="podcast.html">
-                Podcast
-            </a>
-
+            <a href="index.html" class="ativo" aria-current="page">Início</a>
+            <a href="diretorio.html">Diretório</a>
+            <a href="associacao.html">Associe-se</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="podcast.html">Podcast</a>
         </nav>
-
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main id="conteudo-principal">
+        <h1>Câmara de Comércio de Rio das Ostras</h1>
 
-        <!-- IMAGEM PRINCIPAL E CHAMADA PARA AÇÃO -->
-        <section class="hero">
-
-            <img
-              src="imagens/camara-social.png"
-              alt="Câmara de Comércio de Rio das Ostras e desenvolvimento do comércio local"
-              fetchpriority="high">
-
+        <section class="hero" aria-labelledby="titulo-hero">
+            <img src="imagens/camara-social.png" alt="Câmara de Comércio de Rio das Ostras e desenvolvimento do comércio local" fetchpriority="high">
             <div class="hero-conteudo">
-
-                <h2>Fortalecendo os negócios de Rio das Ostras</h2>
-
-                <p>
-                    Conectamos empreendedores, incentivamos oportunidades
-                    e trabalhamos pelo crescimento do comércio local.
-                </p>
-
-                <a href="associacao.html" class="botao-cta">
-                    Associe sua empresa
-                </a>
-
+                <h2 id="titulo-hero">Fortalecendo os negócios de Rio das Ostras</h2>
+                <p>Conectamos empreendedores, incentivamos oportunidades e trabalhamos pelo crescimento do comércio local.</p>
+                <a href="associacao.html" class="botao-cta">Associe sua empresa</a>
             </div>
-
         </section>
 
-        <!-- EVENTOS ATUAIS -->
-        <section class="eventos-home">
-
-            <h2>Eventos e novidades</h2>
-
+        <section class="eventos-home" aria-labelledby="titulo-eventos">
+            <h2 id="titulo-eventos">Eventos e novidades</h2>
             <article>
-
                 <h3>Conectando empreendedores</h3>
-
-                <p>
-                    A Câmara de Comércio incentiva a participação
-                    dos empreendedores em atividades que fortalecem
-                    o comércio e criam novas oportunidades.
-                </p>
-
+                <p>A Câmara de Comércio incentiva a participação dos empreendedores em atividades que fortalecem o comércio e criam novas oportunidades.</p>
             </article>
-
             <article>
-
                 <h3>Fortalecimento do comércio local</h3>
-
-                <p>
-                    Conheça as empresas participantes e descubra
-                    oportunidades de parceria em Rio das Ostras.
-                </p>
-
+                <p>Conheça as empresas participantes e descubra oportunidades de parceria em Rio das Ostras.</p>
             </article>
-
-            <a href="eventos.html">
-                Conheça nossos eventos
-            </a>
-
+            <a href="eventos.html">Conheça nossos eventos</a>
         </section>
 
-        <!-- PREVISÃO DO TEMPO -->
-        <section class="secao-tempo">
-
-            <h2>Tempo em Rio das Ostras</h2>
-
-            <div class="tempo-atual">
-
+        <section class="secao-tempo" aria-labelledby="titulo-tempo">
+            <h2 id="titulo-tempo">Tempo em Rio das Ostras</h2>
+            <div class="tempo-atual" aria-live="polite">
                 <h3>Condições atuais</h3>
-
-                <p>
-                    Temperatura:
-                    <span id="temperatura">Carregando...</span>
-                </p>
-
-                <p>
-                    Condição:
-                    <span id="descricaoTempo">Carregando...</span>
-                </p>
-
-                <p>
-                    Sensação térmica:
-                    <span id="sensacaoTermica">Carregando...</span>
-                </p>
-
+                <p>Temperatura: <span id="temperatura">Carregando...</span></p>
+                <p>Condição: <span id="descricaoTempo">Carregando...</span></p>
+                <p>Sensação térmica: <span id="sensacaoTermica">Carregando...</span></p>
             </div>
-
-            <div class="previsao-tempo">
-
+            <div class="previsao-tempo" aria-live="polite">
                 <h3>Previsão para os próximos três dias</h3>
-
                 <div id="previsaoDias">
                     <p>Carregando previsão...</p>
                 </div>
-
             </div>
-
         </section>
 
-        <!-- EMPRESAS EM DESTAQUE -->
-        <section class="destaques">
-
-            <h2>Empresas em destaque</h2>
-
-            <p>
-                Conheça algumas empresas que fazem parte
-                da Câmara de Comércio de Rio das Ostras.
-            </p>
-
-            <div id="empresasDestaque" class="grade-destaques">
+        <section class="destaques" aria-labelledby="titulo-destaques">
+            <h2 id="titulo-destaques">Empresas em destaque</h2>
+            <p>Conheça algumas empresas que fazem parte da Câmara de Comércio de Rio das Ostras.</p>
+            <div id="empresasDestaque" class="grade-destaques" aria-live="polite">
                 <p>Carregando empresas em destaque...</p>
             </div>
-
-            <a href="diretorio.html" class="botao-cta">
-                Ver todas as empresas
-            </a>
-
+            <a href="diretorio.html" class="botao-cta">Ver todas as empresas</a>
         </section>
-
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
-
         <div>
-
-            <h2>Câmara de Comércio de Rio das Ostras</h2>
-
+            <p class="rodape-titulo">Câmara de Comércio de Rio das Ostras</p>
             <p>Rio das Ostras - RJ, Brasil</p>
-
-            <p>
-                <a href="mailto:contato@camarario.com.br">
-                    contato@camarario.com.br
-                </a>
-            </p>
-
+            <p><a href="mailto:contato@camarario.com.br">contato@camarario.com.br</a></p>
         </div>
-
         <div>
-
             <p>Ravanny da Silva Trajano Galvão Navarro</p>
-
             <p>WDD 231 - Desenvolvimento Web</p>
-
-            <p>
-                © <span id="anoAtual"></span>
-                Câmara de Comércio
-            </p>
-
-            <p>
-                Última modificação:
-                <span id="ultimaModificacao"></span>
-            </p>
-
+            <p>&copy; <span id="anoAtual"></span> Câmara de Comércio</p>
+            <p>Última modificação: <span id="ultimaModificacao"></span></p>
         </div>
-
     </footer>
-
 </body>
 </html>
