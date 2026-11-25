@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano do Site - Mundo Inexplorado | WDD 231</title>
+    <meta name="description" content="Documento de planeamento do site Mundo Inexplorado para a disciplina WDD 231: lugares curiosos, destinos turísticos e histórias fascinantes.">
+    <meta name="author" content="Ravanny">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../final/estilos/estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Plano do Site: Mundo Inexplorado</h1>
+        <p>WDD 231 - Desenvolvimento Web Frontend I | Projeto Individual</p>
+    </header>
+
+    <main>
+        <section id="site-name">
+            <h2>1. Nome do Site</h2>
+            <p><strong>Nome Escolhido:</strong> Mundo Inexplorado</p>
+            <p><strong>Domínio Sugerido:</strong> mundoinexplorado.org</p>
+            <p><strong>Motivo da Escolha:</strong> O nome expressa o propósito do projeto de apresentar lugares curiosos, monumentos naturais, culturas, destinos turísticos e histórias fascinantes do mundo.</p>
+        </section>
+
+        <section id="site-purpose">
+            <h2>2. Finalidade do Site</h2>
+            <p>O <strong>Mundo Inexplorado</strong> apresenta conteúdos informativos sobre destinos turísticos, curiosidades históricas e lugares fascinantes, apoiado por páginas complementares para exploração interativa, envio/visualização de formulários e atribuições de recursos:</p>
+            <ul>
+                <li><strong>index.html:</strong> apresentação do projeto e destaque de lugares interessantes.</li>
+                <li><strong>destinos.html:</strong> exploração de países, cidades e atrações turísticas com dados em JSON e integração de API.</li>
+                <li><strong>explorar.html:</strong> curiosidades, histórias fascinantes e formulário interativo.</li>
+                <li><strong>resultado.html:</strong> apresentação dos dados submetidos no formulário.</li>
+                <li><strong>atribuciones.html:</strong> créditos de fontes, APIs e recursos utilizados.</li>
+            </ul>
+        </section>
+
+        <section id="scenarios">
+            <h2>3. Cenários (Público-Alvo)</h2>
+            <ul>
+                <li>"Quais são os destinos turísticos e lugares curiosos em destaque e o que os torna especiais?"</li>
+                <li>"Quais histórias fascinantes e curiosidades existem por trás de diferentes regiões do mundo?"</li>
+                <li>"Como posso consultar informações de destinos e submeter um registo ou sugestão pelo site?"</li>
+            </ul>
+        </section>
+
+        <section id="color-schema">
+            <h2>4. Esquema de Cores</h2>
+            <p>Paleta definida exclusivamente para este projeto, com alto contraste e leitura clara:</p>
+            <div class="color-grid">
+                <div class="color-card primary">
+                    <h3>Primária</h3>
+                    <p><strong>Azul Oceano Profundo</strong> — <code>#0F4C5C</code></p>
+                    <p>Cabeçalho, títulos principais e navegação de destaque.</p>
+                </div>
+                <div class="color-card secondary">
+                    <h3>Secundária</h3>
+                    <p><strong>Carvão Editorial</strong> — <code>#1C252C</code></p>
+                    <p>Rodapé, subtítulos e estruturas de apoio.</p>
+                </div>
+                <div class="color-card accent">
+                    <h3>Destaque (Acento)</h3>
+                    <p><strong>Terracota de Expedição</strong> — <code>#C85A17</code></p>
+                    <p>Destaques, bordas de ênfase e ações principais.</p>
+                </div>
+                <div class="color-card background">
+                    <h3>Fundo e Texto</h3>
+                    <p><strong>Areia Clara / Grafite Escuro</strong> — <code>#F7F5F0</code> / <code>#1F2933</code></p>
+                    <p>Fundo geral (#F7F5F0), cartões (#FFFFFF) e texto base (#1F2933).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography">
+            <h2>5. Tipografia</h2>
+            <div class="typography-sample">
+                <h3 class="font-heading-demo">Lora (Títulos)</h3>
+                <p>Usada em <code>h1</code>, <code>h2</code>, <code>h3</code> e títulos de cartões/secções.</p>
+            </div>
+            <div class="typography-sample">
+                <h3 class="font-body-demo">Plus Jakarta Sans (Corpo e Interface)</h3>
+                <p>Usada em parágrafos, listas, formulários e textos de apoio.</p>
+            </div>
+        </section>
+
+        <section id="wireframes">
+            <h2>6. Wireframes (Página Inicial)</h2>
+            <div class="wireframe-container">
+                <div class="wireframe-box">
+                    <h3>Viewport Pequena (Mobile)</h3>
+                    <div class="wf-mockup">
+                        <div class="wf-block">Header + Menu [☰]</div>
+                        <div class="wf-block wf-hero">Hero: Mundo Inexplorado + CTA</div>
+                        <div class="wf-block">Destaque 1</div>
+                        <div class="wf-block">Destaque 2</div>
+                        <div class="wf-block">Curiosidade em Destaque</div>
+                        <div class="wf-block">Footer</div>
+                    </div>
+                </div>
+                <div class="wireframe-box">
+                    <h3>Viewport Grande (Desktop)</h3>
+                    <div class="wf-mockup">
+                        <div class="wf-block">Header: Logo | Links de Navegação</div>
+                        <div class="wf-block wf-hero">Hero Banner + Resumo + CTA</div>
+                        <div class="wf-grid-3">
+                            <div class="wf-block">Destino 1</div>
+                            <div class="wf-block">Destino 2</div>
+                            <div class="wf-block">Curiosidade</div>
+                        </div>
+                        <div class="wf-grid-2">
+                            <div class="wf-block">Explorar Lugares</div>
+                            <div class="wf-block">Histórias e Factos</div>
+                        </div>
+                        <div class="wf-block">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 | Ravanny | WDD 231 - Mundo Inexplorado</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atribuições | Mundo Inexplorado</title>
+    <meta name="description" content="Fontes de dados, APIs e recursos utilizados no Mundo Inexplorado.">
+    <meta name="author" content="Ravanny">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <script type="module" src="scripts/main.js"></script>
+</head>
+<body data-page="atribuciones">
+    <header>
+        <div class="header-inner">
+            <a class="brand-title" href="index.html">Mundo Inexplorado</a>
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-list">☰ Menu</button>
+            <nav aria-label="Navegação principal">
+                <ul id="nav-list">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="destinos.html">Destinos</a></li>
+                    <li><a href="explorar.html">Curiosidades</a></li>
+                    <li><a href="atribuciones.html" aria-current="page">Atribuições</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h1>Atribuições e Fontes</h1>
+            <ul>
+                <li><strong>Dados locais:</strong> ficheiro <code>dados/destinos.json</code> mantido no projeto.</li>
+                <li><strong>API pública de países:</strong> REST Countries API (<code>restcountries.com</code>) para dados complementares de capital e população.</li>
+                <li><strong>Tipografia:</strong> Google Fonts (<em>Lora</em> e <em>Plus Jakarta Sans</em>).</li>
+                <li><strong>Imagens:</strong> arquivos locais colocados em <code>imagens/</code> conforme indicado no <code>destinos.json</code>.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="ano-atual">2026</span> Mundo Inexplorado · <a href="atribuciones.html">Atribuições</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "socotra",
+    "nome": "Ilha de Socotra",
+    "pais": "Iémen",
+    "regiao": "Ásia",
+    "categoria": "monumento-natural",
+    "destaqueHome": true,
+    "imagem": "imagens/socotra.jpg",
+    "alt": "Árvores sangue-de-dragão na paisagem rochosa da Ilha de Socotra",
+    "resumo": "Arquipélago isolado conhecido pelas árvores sangue-de-dragão e flora endémica singular.",
+    "curiosidade": "Cerca de um terço das espécies vegetais da ilha não existe em mais nenhum lugar do planeta.",
+    "codigoPais": "YE"
+  },
+  {
+    "id": "salar-uyuni",
+    "nome": "Salar de Uyuni",
+    "pais": "Bolívia",
+    "regiao": "América do Sul",
+    "categoria": "destino-turistico",
+    "destaqueHome": true,
+    "imagem": "imagens/uyuni.jpg",
+    "alt": "Planície de sal do Salar de Uyuni refletindo o céu",
+    "resumo": "O maior deserto de sal contínuo do mundo, com efeito espelho durante a época das chuvas.",
+    "curiosidade": "A fina camada de água na estação chuvosa transforma a superfície num dos maiores espelhos naturais da Terra.",
+    "codigoPais": "BO"
+  },
+  {
+    "id": "cappadocia-derinkuyu",
+    "nome": "Derinkuyu e Capadócia",
+    "pais": "Turquia",
+    "regiao": "Ásia / Europa",
+    "categoria": "historia",
+    "destaqueHome": true,
+    "imagem": "imagens/capadocia.jpg",
+    "alt": "Formações rochosas e vales da Capadócia na Turquia",
+    "resumo": "Região marcada por formações vulcânicas e cidades subterrâneas escavadas na rocha.",
+    "curiosidade": "A cidade subterrânea de Derinkuyu alcança dezenas de metros de profundidade e abrigava milhares de pessoas.",
+    "codigoPais": "TR"
+  }
+]
